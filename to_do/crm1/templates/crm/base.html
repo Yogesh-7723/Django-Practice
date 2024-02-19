@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>CRM-PROJECT</title>
+        <style>
+            
+            * {
+                margin:0;
+                padding:0;
+                border:border-box;
+            }
+            html,body {
+                width:100%;
+                height:100%;
+            }
+            .navbar {
+                width:100%;
+                height:60px;
+                align-items:center;
+                display:flex;
+                background-color:#001111;
+                
+            }
+            .nav-text
+            {
+                
+                width:200px;
+                height:40px;
+                color:white;
+                text-align:center;
+                margin-left:10px;
+                align-items:center;
+                
+                
+            }
+            .border {
+            border:1.5px solid transform;
+            }
+            .border:hover{
+                border:1.5px solid white;
+            }
+            .nav-text h1 
+            {
+                margin-top:5px;
+            }
+            .nav {
+                width:350px;
+                margin-left:40px;
+                margin-top:4px;
+                font-size:1.3rem;
+                display:flex;
+                justify-content:space-between;
+                
+                
+            }
+            .nav a {
+                color:blue;
+                text-decoration:none;
+                font-weight:800;
+            }
+
+            a:hover {
+                color:white;
+                border:1px solid white;
+                padding:.1rem;
+            }
+            {% block style %}
+        {% endblock style %}
+        </style>
+</head>
+<body>
+    <div class='navbar'>
+        <div class='nav-text border'>
+            <h1>Django CRM</h1>
+        </div>
+        <div class='nav'>
+            <p><a href=''>Home</a></p>
+            <p><a href=''>Contect</a></p>
+            <p><a href=''>add student</a></p>
+        </div>
+    </div>
+    {% block body %}{% endblock body %}
+</body>
+</html>

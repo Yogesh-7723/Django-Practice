@@ -1,0 +1,61 @@
+{% load static %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            td,th 
+            {
+                padding:10px;
+                width:250px;
+                text-align:center;
+            }
+        </style>
+    </head>
+<body class='bg-stone-400'>
+    <div class='flex my-24'>
+        <div class='bg-gray-50 w-96  mx-10 text-xl text-center'>
+            <h1 class='bg-orange-300 h-16 text-2xl text-center pt-4'>Add TO-DO Task</h1>
+            <form action='/addtask/' method='post'>
+                {% csrf_token %}
+            <input type='text' name='task_name' id='task_name' placeholder='Enter your Challenge' class='mt-4 h-24 text-center w-96'><br>
+            <h1 class='mt-4'><b>Challenge date</b></h1>
+            <input type='date' class='mt-4 border-2' name='due_date' id='due_date'><br>
+        
+            <button type='submit'  class='bg-blue-800 border-2 mt-6 mb-4 p-2 rounded-xl'>Add Task</button>
+            </form>
+        </div>
+    <div class=' bg-gray-50 ml-[150px] mr-10  border-2 '>
+        <div class='bg-yellow-400 h-16 flex'>
+            <h1 class=' text-4xl ml-[220px] mt-2 text-center' >Welcome in TO-DO List</h1>
+        </div>
+        <table class=' mt-4 text-xl '>
+            <form>
+                <tr>
+                    <th>Tasks</th>
+                    <th>due_date</th>
+                    <th>STATUS</th>
+                    <th>action</th>
+                </tr>
+                <tr class='btn'>
+                    {% for i in task %}
+                    <td id='box'>{{i.task_name}}</td>
+                    <td>{{i.due_date}}</td>
+                    <td>
+                    {% if i.completed %}
+                    <a href='success/{{i.id}}/' > 🔵 </a>
+                    {% else %}
+                    <a href='success/{{i.id}}/' >🔘</a>
+                    {% endif %}
+                    </td>
+                    <td class='flex'>
+                        <a href='delete/{{i.id}}/' class='ml-32 mt-4'>✖</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </form>
+        </table>
+    </div>
+</div>      
+</body>
+</html>

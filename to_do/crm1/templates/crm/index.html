@@ -1,0 +1,66 @@
+{% extends "crm/base.html" %}
+{% block style %}
+
+.students {
+    width:100%;
+    justify-content:center;
+    align-items:center;
+
+}
+table {
+    width:70rem;
+    text-align:center;
+    margin-top:50px;
+    margin-left:140px;
+}
+table th {
+    background-color:#34ebd2;
+    font-size:1.3rem;
+    padding:.2rem;
+
+}
+td {
+    font-size:1rem;
+    font-weight:600;
+    padding:.2rem;
+    margin-top:.5rem;
+}
+{% endblock style %}
+
+
+{% block body %}
+<div class='main'>
+    <div class='students'>
+        <table>
+            <form method='post'>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Email Id</th>
+            <th>Course</th>
+            <th>Branch</th>
+            <th>year with sem</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <td>1.</td>
+            <td>Yogesh</td>
+            <td>yogesh@gmail</td>
+            <td>b.tech</td>
+            <td>EC</td>
+            <td>8th sem</td>
+            <td>Pass</td>
+        </tr>
+        <tr>
+            <td>1.</td>
+            <td>Yogesh</td>
+            <td>yogesh@gmail</td>
+            <td>b.tech</td>
+            <td>EC</td>
+            <td>8th sem</td>
+            <td>Pass</td>
+        </tr>
+        </table>
+    </div>
+</div>
+{% endblock body %}
