@@ -1,0 +1,2 @@
+# Django-Practice
+project collection
