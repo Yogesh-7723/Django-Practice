@@ -1,7 +1,52 @@
+
 <html>
     <head>
         <title>CRM-PROJECT</title>
         <style>
+
+.login {
+    width:400px;
+    height:300px;
+    margin-left:35rem;
+    margin-top:5rem;
+    text-align:center;
+    border:1px solid black;
+
+}
+.login h1 {
+    padding:1rem;
+}
+
+form {
+    margin-top:20px;
+    font-size:1.5rem;
+
+}
+.user input, .pwd input 
+{
+    width:300px;
+    height:30px;
+    margin-bottom:10px;
+    border-radius:5px;
+    border:none;
+}
+.submit {
+    padding:.6rem;
+    font-size:1rem;
+    margin-top:20px;
+}
+.error {
+    width:387px;
+    margin-top:4px;
+    display:flex;
+    background-color:orange;
+    height:30px;
+    align-items:center;
+    padding:.5rem;
+
+}
+
+
             
             * {
                 margin:0;
@@ -63,8 +108,6 @@
                 border:1px solid white;
                 padding:.1rem;
             }
-            {% block style %}
-        {% endblock style %}
         </style>
 </head>
 <body>
@@ -73,12 +116,31 @@
             <h1>Django CRM</h1>
         </div>
         <div class='nav'>
-            <p><a href='/crm1/'>Home</a></p>
+            <p><a href=''>Home</a></p>
             <p><a href=''>Contect</a></p>
-            <p><a href='/crm1/student/'>add student</a></p>
+            <p><a href=''>add student</a></p>
             <p><a href='/crm1/home/'>login\signup</a></p>
         </div>
     </div>
-    {% block body %}{% endblock body %}
+    <div class='login'>
+        <h1>Login Admin</h1>
+        <form action='/crm1/home/' method='post'>
+            {% csrf_token %}
+        <label>Username</label>
+        <div class='user'><input type='text' placeholder='Enter user name' name='username'  id='username'></div>
+        <label>Password</label>
+        <div class='pwd'><input  type='password' name='password' placeholder='Enter password' id='password'></div>
+        <div><button type='submit' class='submit'>Submit</button>
+        </form>
+        <br>
+            {%  for message in messages %}
+                <div class='error'>
+                    <strong>Warning </strong>: {{message}}
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            {% endfor %}
+    
+    
+    </div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 
 }
 table {
-    width:70rem;
+    width:75rem;
     text-align:center;
     margin-top:50px;
     margin-left:140px;
@@ -16,12 +16,12 @@ table {
 table th {
     background-color:#34ebd2;
     font-size:1.3rem;
-    padding:.2rem;
+    padding:.3rem;
 
 }
 td {
-    font-size:1rem;
-    font-weight:600;
+    font-size:1.1rem;
+    font-weight:400;
     padding:.2rem;
     margin-top:.5rem;
 }
@@ -32,35 +32,37 @@ td {
 <div class='main'>
     <div class='students'>
         <table>
-            <form method='post'>
+            <form method='post' enctype="multipart/form-data">
         <tr>
-            <th></th>
+            <th>Serial no.</th>
             <th>Name</th>
             <th>Email Id</th>
+            <th>Contect</th>
             <th>Course</th>
             <th>Branch</th>
             <th>year with sem</th>
+            <th>CGPA</th>
             <th>Result</th>
         </tr>
-        <tr>
-            <td>1.</td>
-            <td>Yogesh</td>
-            <td>yogesh@gmail</td>
-            <td>b.tech</td>
-            <td>EC</td>
-            <td>8th sem</td>
-            <td>Pass</td>
+        {% for i in student %}
+        <tr> 
+            <td>{{forloop.counter}}.</td>
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.contect}}</td>
+            <td>{{i.course}}</td>
+            <td>{{i.branch}}</td>
+            <td>{{i.year_sem}}</td>
+            <td>{{i.cgpa}}</td>
+            <td>{% if i.result %}
+                <img src="{{i.result.url}}" width="100px" alt='network connection error'>
+                {% endif %}
+            </td>
+            {% endfor %} 
         </tr>
-        <tr>
-            <td>1.</td>
-            <td>Yogesh</td>
-            <td>yogesh@gmail</td>
-            <td>b.tech</td>
-            <td>EC</td>
-            <td>8th sem</td>
-            <td>Pass</td>
-        </tr>
-        </table>
-    </div>
+        
+    </form>
+</table>
+</div>
 </div>
 {% endblock body %}

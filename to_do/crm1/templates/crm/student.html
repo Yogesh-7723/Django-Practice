@@ -1,0 +1,109 @@
+{% extends "crm/base.html" %}
+
+{% block style %}
+
+.login {
+    width:600px;
+    height:400px;
+    margin-left:25rem;
+    margin-top:5rem;
+    border:1px solid black;
+    
+
+}
+.main {
+    display:flex;
+    justify-content:space-between;
+    
+}
+.box1 {
+    margin-left:10px;
+    width:250px;
+}
+.box2 {
+    
+    width:250px;
+
+}
+.login h1 {
+    padding:1rem;
+}
+
+form {
+    margin-top:20px;
+    font-size:1.5rem;
+
+}
+.user input, .pwd input 
+{
+    width:200px;
+    height:30px;
+    font-size:1.2rem;
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-left:5px;
+    padding:.3rem;
+    background-color:#F4EBEB;
+    border-radius:5px;
+    border:none;
+}
+.submit {
+    padding:.6rem;
+    font-size:1rem;
+    margin-top:30px;
+    margin-left:260px;
+}
+.error {
+    width:387px;
+    margin-top:4px;
+    display:flex;
+    background-color:#74992e;
+    height:30px;
+    align-items:center;
+
+
+}
+
+
+{% endblock style %}
+{% block body %}
+{%  for message in messages %}
+    <div class='error'>
+        <strong>Message </strong>: {{message}}
+        <i class="fa-solid fa-xmark"></i>
+    </div>
+{% endfor %}
+<div class='login'>
+    
+    <h1>New Student</h1>
+    <form action='/crm1/student/' method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+    <div class='main'>
+    <div class='box1'>
+        <label>Name</label>
+        <div class='user'><input type='text' placeholder='Enter student name' name='name'  id='name'></div>
+        <label>Email Id</label>
+        <div class='pwd'><input  type='text' name='email' placeholder='Enter email' id='email'></div>
+        <label>Contect</label>
+        <div class='pwd'><input  type='text' name='contect' placeholder='Enter contect number' id='contect'></div>
+        <label>Course</label>
+        <div class='pwd'><input  type='text' name='course' placeholder='Enter course name' id='course'></div>
+
+    </div>
+    <div class='box2'>
+        <label>Branch</label>
+        <div class='pwd'><input  type='text' name='branch' placeholder='Enter branch name' id='branch'></div>
+        <label>Year and Sem</label>
+        <div class='pwd'><input  type='text' name='year_sem' placeholder='Enter result sem and year' id='year_sem'></div>
+        <label>CGPA</label>
+        <div class='pwd'><input  type='text' name='cgpa' placeholder='Enter your cgpa' id='cgpa'></div>
+        <label>Result</label>
+        <div class='pwd'><input  type='file' name='result'  id='result'></div>
+        </div>
+    </div>
+        <div><button type='submit' class='submit'>Submit</button>
+    </form>
+    
+</div>
+
+{% endblock body %}
